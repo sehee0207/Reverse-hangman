@@ -4,9 +4,9 @@ import java.io.IOException;
 
 public class Main {
 	public static void main(String[] args) throws IOException{
-		Hangman2 hangman = new Hangman2();
+		Hangman2 hangman = new Hangman2(); // hangman2 클래스의 객체 생성
 		
-		int result = hangman.playGame();
+		int result = hangman.playGame(); // 게임 실행
 		
 		System.out.println();
 		if(result <= 2) {
