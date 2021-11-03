@@ -5,49 +5,39 @@ import java.io.*;
 
 public class Hangman2 extends Hangman{ // hangman 클래스 상속
 	
-// https://stackoverflow.com/questions/36299122/method-add-in-arraylistclassname-is-not-applicable-for-the-arguments-string
+	static final Scanner in = new Scanner(System.in);
+	static List<String> words = getStandardWords();
+	static List<String> meanings = getStandardMeanings();
+
 	
-//	static List<String> getStandarWords(){
-//		
-//		ArrayList<String> words = new ArrayList<String>();
-//		
-//		FileInputStream wordlist = new FileInputStream("/Reversehangman/word");
-//		InputStreamReader word = new InputStreamReader(wordlist, "MS949");
-//	    BufferedReader br1 = new BufferedReader(word);
-//		for(int i=0;i<words.size()+1;i++) {
-//			String str = new String();
-//			str.set
-//			words.add(null);
-//		}
-//		
-//		ArrayList<String> meanings = new ArrayList<String>();
-//		
-//		FileInputStream meanlist = new FileInputStream("/Reversehangman/mean");
-//		InputStreamReader mean = new InputStreamReader(meanlist, "MS949");
-//	    BufferedReader br2 = new BufferedReader(mean);
-//		for(int i=0;i<meanings.size()+1;i++) {
-//			meanings.add(br2);
-//		}
-//		
-//	}
-	
-	for(int i=0;i<word.size();i++) {
-		
+	static List<String> getStandardWords() {
+	    List<String> word = new ArrayList<>();
+	    word.add("fish");
+	    word.add("chicken");
+	    word.add("icecream");
+		return word;
 	}
 	
-	String[] words = { "fever" };
-	String[] meaning = { "열" };
-	
+	static List<String> getStandardMeanings() {
+	    List<String> meaning = new ArrayList<>();
+	    meaning.add("생선");
+	    meaning.add("닭");
+	    meaning.add("아이스크림");
+		return meaning;
+	}
+
 	public Hangman2() throws IOException{
 		
 		System.out.println("행맨 게임 시작하빈다"); // 게임 시작 문구
 		
 		Random r = new Random(); 
-		int randomNum = Math.abs(r.nextInt() % words.length); // 난수 생성
+		int randomNum = Math.abs(r.nextInt() % words.size()); // 난수 생성
 		
-		hiddenString = words[randomNum]; // 문제가 저장된 배열 중 하나를 선택
+		hiddenString = words.get(randomNum); // 문제가 저장된 배열 중 하나를 선택
 		
-		System.out.println("의미 : " + meaning[randomNum]);
+		System.out.println("의미 : " + meanings.get(randomNum));
+		
+//		Random r = new Random();
 	}
 	
 	public char readChar() throws IOException{
