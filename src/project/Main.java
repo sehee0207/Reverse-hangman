@@ -5,27 +5,59 @@ import java.util.Scanner;
 
 public class Main {
 	public static void main(String[] args) throws IOException{
-		Hangman2 hangman = new Hangman2(); // hangman2 클래스의 객체 생성
-		Scanner mode = new Scanner(System.in);
-		String mode_num;
-		System.out.println();
-		System.out.println("=============== Hangman Game ===============");
-		System.out.println();
-		System.out.println("1 easy | 2 ordinary | 3 hard");
-		System.out.println("입력 : ");
-		mode_num = mode.nextLine();
 		
-		switch(mode_num) {
-		case 1:
-			int result = hangman.playGame();
-			break;
+		@SuppressWarnings("resource")
+		Scanner input = new Scanner(System.in);
+		String mode_num = null;
+		int result = 0;
+		System.out.println();
+		System.out.println("===========	Hangman Game	===========");
+		System.out.println();
+		System.out.println("	1 easy | 2 ordinary | 3 hard");
+		System.out.println("	4 rule | 5 exit | 6 etc");
+		
+		while(mode_num != "exit") {
+			System.out.println();
+			System.out.print("입력 : ");
+			mode_num = input.nextLine();
+			result = 10;
 			
-		case 2:
-			int result = hangman.playGame();
-			break;
-			
-		case 3:
-			int result = hangman.playGame();
+			switch(mode_num) {
+			case "1":
+				Easy Easy_mode = new Easy();
+				result = Easy_mode.playGame();
+				break;
+				
+			case "2":
+				Ordinary Ordin_mode = new Ordinary();
+				result = Ordin_mode.playGame();
+				break;
+				
+			case "3":
+				Hard Hard_mode = new Hard();
+				result = Hard_mode.playGame();
+				break;
+				 
+			case "4":
+				System.out.println("게임 룰");
+				System.out.println("1 : 힌트 기능 존재");
+				System.out.println("2 : 힌트X, 어렵지 않은 단어");
+				System.out.println("3 : 힌트X, 어려운 단어");
+				break;
+				
+			case "5":
+				System.out.println("행맨 게임 종료");
+				mode_num = "exit";
+				break;
+				
+			case "6":
+				System.out.println("github : ");
+				break;
+				
+			default:
+				System.out.println("다시 확인한 후 입력해주세요.");
+				break;
+			}
 		}
 		
 		System.out.println();
@@ -35,56 +67,8 @@ public class Main {
 			System.out.println("흠");
 		}else if(result <= 6) {
 			System.out.println("4등급");
-		}else {
+		}else if(result == 7) {
 			System.out.println("너가 죽였어");
 		}
 	}
 }
-
-//public class Main {
-//	
-//	public static void main(String[] args) throws IOException{
-//		
-//	}
-//	}
-//	
-//	static Scanner scan = new Scanner(System.in);
-//	
-//	static void page1() {
-//
-//		System.out.println();
-//		System.out.println("============= Hangman Game ============");
-//		System.out.println();
-//		System.out.println("(1)오리지널 행맨 (2)hard 행맨 (3)easy 행맨");
-//		System.out.println();
-//		System.out.println("============================================");
-//
-//		int input = scan.nextInt();
-//		System.out.println();
-//
-//		switch (input) {
-//		case 1:
-//			page2();
-//			break;
-//
-//		case 2:
-//			page3();
-//			break;
-//
-//		case 3:
-//			page4();
-//		}
-//	}
-//
-//		static void page2() {
-//				System.out.println("아녕하세요");
-//			}
-//
-//		static void page3() {
-//				System.out.println("아녕하세요");
-//			}
-//
-//		static void page4() {
-//				System.out.println("아녕하세요");
-//			}		
-//}
