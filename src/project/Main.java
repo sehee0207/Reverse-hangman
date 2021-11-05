@@ -13,7 +13,7 @@ public class Main {
 		
 		while(mode_num != "exit") {
 			System.out.println();
-			System.out.println("===========	Hangman Game	===========");
+			System.out.println("=========== Reverse Hangman Game ===========");
 			System.out.println();
 			System.out.println("	1 easy | 2 ordinary | 3 hard");
 			System.out.println("	4 rule | 5 exit | 6 etc");
@@ -41,38 +41,41 @@ public class Main {
 				break;
 				 
 			case "4":
-				System.out.println("===========	게임 규칙 	===========");
-				System.out.println("규칙 : 한글 의미를 보고 영어 철자를 맞추는 게임");
-				System.out.println("3가지 모드의 게임이 존재");
-				System.out.println("1 : 힌트O, ");
-				System.out.println("2 : 힌트X, 어렵지 않은 단어");
-				System.out.println("3 : 힌트X, 어려운 단어");
+				System.out.println();
+				System.out.println("================   게임  룰   ================");
+				System.out.println("규칙 : 한글 의미를 보고 영어 단어를 맞추는 게임");
+				System.out.println("기존의 행맨 게임과는 반대로 실패시 한 부위씩 사라집니다.");
+				System.out.println("3가지 모드의 게임이 존재함");
+				System.out.println("1 easy : 힌트O, 초등학생 수준 단어");
+				System.out.println("2 ordinary : 힌트X, 중고등학생 수준 단어");
+				System.out.println("3 hard : 힌트X, 어려운 단어");
 				break;
-//				System.out.println("=");​
 				
 			case "5":
-				System.out.println("행맨 게임 종료");
+				System.out.println();
+				System.out.println("Reverse Hangman Game을 종료합니다.");
 				mode_num = "exit";
 				break;
 				
 			case "6":
+				System.out.println();
 				System.out.println("github : https://github.com/sehee0207/Reverse-hangman");
-				System.out.println("Sehee & Jisu");
 				break;
 				
 			default:
-				System.out.println("다시 확인한 후 입력해주세요.");
+				System.out.println();
+				System.out.println("메뉴를 다시 보고 입력해주세요.");
 				break;
 			}
 		}
 		
 		System.out.println();
 		if(result <= 2) {
-			System.out.println("영어 천재");
+			System.out.println("영어 천재이군요!");
 		}else if(result <= 4) {
-			System.out.println("흠");
+			System.out.println("으음 .. 수고하셨습니다 게임 끝");
 		}else if(result <= 6) {
-			System.out.println("4등급");
+			System.out.println("분발하세요!");
 		}else if(result == 7) {
 			System.out.println("너가 죽였어");
 		}

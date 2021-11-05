@@ -4,12 +4,13 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class Hangman {
+	static final Scanner in = new Scanner(System.in);
 	static String hiddenString;		// 문제
 	static String hiddenString_mean;
-	StringBuffer outputString;	// 입력에 따른 결과로 보여줄 문자열
-	StringBuffer inputString;	// 입력한 문자
-	int remainder;				// 맞추지 못해서 남아있는 문자의 개수
-	int failed; 				// 실패한 횟수
+	StringBuffer outputString;		// 입력에 따른 결과로 보여줄 문자열
+	StringBuffer inputString;		// 입력한 문자
+	int remainder;					// 맞추지 못해서 남아있는 문자의 개수
+	int failed; 					// 실패한 횟수
 	
 	public int playGame() throws IOException{
 		outputString = new StringBuffer(); // 문자열의 저장 및 변경을 위한 메모리 공간을 지닌 클래스
@@ -34,7 +35,8 @@ public class Hangman {
 		
 	}while((remainder>0)&&(failed<7)); // 남아있는 글자 수가 없거나, 7번 넘게 틀렸을 때 반복문 중단
 	
-	System.out.println("정답은 " + hiddenString + "였습니다"); // 정답 출력
+	System.out.println("게임 종료,");
+	System.out.println("정답은 " + hiddenString + "입니다."); // 정답 출력
 	
 	return failed;
 }
@@ -43,7 +45,7 @@ public class Hangman {
 		boolean already = false;
 		for(int i = 0;i<inputString.length();i++) {
 			if(inputString.charAt(i) == guess) {
-				System.out.println("\n이미 입력한 문자입니다! 다시 입력해주세요!!"); // 이미 입력한 문자인지 확인하는 함수
+				System.out.println("\n이미 입력한 문자입니다."); // 이미 입력한 문자인지 확인하는 함수
 				already=true;
 			}
 		}
@@ -61,7 +63,7 @@ public class Hangman {
 			}
 			
 			if(!success) { // 이미 입력한 문자도 아니고 들어가지 않는 문자일때
-				System.out.println("오 이런! " + guess + "는 단어에 들어가지 않는 알파벳입니다. 다시 맞춰보세요.");
+				System.out.println(guess + "는 단어에 들어가지 않습니다.");
 				failed++; // 실패 횟수 1 ++
 			}
 		}

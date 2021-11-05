@@ -4,11 +4,8 @@ import java.util.*;
 import java.io.*;
 
 public class Hard extends Hangman{ // hangman 클래스 상속
-	
-	static final Scanner in = new Scanner(System.in);
 	static List<String> words = getStandardWords();
 	static List<String> meanings = getStandardMeanings();
-	
 	static List<String> getStandardWords(){
 		List<String> word = new ArrayList<>();
 		word.add("abort"); word.add("absurd"); word.add("bankrupt");
@@ -30,7 +27,6 @@ public class Hard extends Hangman{ // hangman 클래스 상속
 		
 		return word;
 	}
-	
 	static List<String> getStandardMeanings() {
 	    List<String> meaning = new ArrayList<>();
 	    meaning.add("유산하다"); meaning.add("불합리한"); meaning.add("파산자");
@@ -59,10 +55,7 @@ public class Hard extends Hangman{ // hangman 클래스 상속
 		int randomNum = Math.abs(r.nextInt() % words.size()); // 난수 생성
 		
 		hiddenString = words.get(randomNum); // 문제가 저장된 배열 중 하나를 선택
-		
-		System.out.println("의미 : " + meanings.get(randomNum));
-		
-//		Random r = new Random();
+		hiddenString_mean = meanings.get(randomNum);
 	}
 	
 	public char readChar() throws IOException{
@@ -71,13 +64,10 @@ public class Hard extends Hangman{ // hangman 클래스 상속
 		String user;
 		
 		do {
-			System.out.print("알파벳을 하나 입력하세요: ");
+			System.out.println("");
+			System.out.println("의미: " + hiddenString_mean);
+			System.out.print("문자를 입력하세요: ");
 			user = in.nextLine(); // 키보드로부터 입력 받기
-			
-			if(user.charAt(0) == ' ') {
-				System.out.println("공백을 입력할 수 없습니다. 다시 확인해주세요");
-			}
-			
 		}while(user.charAt(0) == ' ');
 		
 		return user.charAt(0);
