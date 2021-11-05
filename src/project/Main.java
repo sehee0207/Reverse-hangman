@@ -10,15 +10,14 @@ public class Main {
 		Scanner input = new Scanner(System.in);
 		String mode_num = null;
 		int result = 0;
-		System.out.println();
-		System.out.println("===========	Hangman Game	===========");
-		System.out.println();
-		System.out.println("	1 easy | 2 ordinary | 3 hard");
-		System.out.println("	4 rule | 5 exit | 6 etc");
 		
 		while(mode_num != "exit") {
 			System.out.println();
-			System.out.print("ÀÔ·Â : ");
+			System.out.println("===========	Hangman Game	===========");
+			System.out.println();
+			System.out.println("	1 easy | 2 ordinary | 3 hard");
+			System.out.println("	4 rule | 5 exit | 6 etc");
+			System.out.print("ì…ë ¥ : ");
 			mode_num = input.nextLine();
 			result = 10;
 			
@@ -26,49 +25,56 @@ public class Main {
 			case "1":
 				Easy Easy_mode = new Easy();
 				result = Easy_mode.playGame();
+				mode_num = "exit";
 				break;
 				
 			case "2":
 				Ordinary Ordin_mode = new Ordinary();
 				result = Ordin_mode.playGame();
+				mode_num = "exit";
 				break;
 				
 			case "3":
 				Hard Hard_mode = new Hard();
 				result = Hard_mode.playGame();
+				mode_num = "exit";
 				break;
 				 
 			case "4":
-				System.out.println("°ÔÀÓ ·ê");
-				System.out.println("1 : ÈùÆ® ±â´É Á¸Àç");
-				System.out.println("2 : ÈùÆ®X, ¾î·ÆÁö ¾ÊÀº ´Ü¾î");
-				System.out.println("3 : ÈùÆ®X, ¾î·Á¿î ´Ü¾î");
+				System.out.println("===========	ê²Œì„ ê·œì¹™ 	===========");
+				System.out.println("ê·œì¹™ : í•œê¸€ ì˜ë¯¸ë¥¼ ë³´ê³  ì˜ì–´ ì² ìë¥¼ ë§ì¶”ëŠ” ê²Œì„");
+				System.out.println("3ê°€ì§€ ëª¨ë“œì˜ ê²Œì„ì´ ì¡´ì¬");
+				System.out.println("1 : íŒíŠ¸O, ");
+				System.out.println("2 : íŒíŠ¸X, ì–´ë µì§€ ì•Šì€ ë‹¨ì–´");
+				System.out.println("3 : íŒíŠ¸X, ì–´ë ¤ìš´ ë‹¨ì–´");
 				break;
+//				System.out.println("=");â€‹
 				
 			case "5":
-				System.out.println("Çà¸Ç °ÔÀÓ Á¾·á");
+				System.out.println("í–‰ë§¨ ê²Œì„ ì¢…ë£Œ");
 				mode_num = "exit";
 				break;
 				
 			case "6":
-				System.out.println("github : ");
+				System.out.println("github : https://github.com/sehee0207/Reverse-hangman");
+				System.out.println("Sehee & Jisu");
 				break;
 				
 			default:
-				System.out.println("´Ù½Ã È®ÀÎÇÑ ÈÄ ÀÔ·ÂÇØÁÖ¼¼¿ä.");
+				System.out.println("ë‹¤ì‹œ í™•ì¸í•œ í›„ ì…ë ¥í•´ì£¼ì„¸ìš”.");
 				break;
 			}
 		}
 		
 		System.out.println();
 		if(result <= 2) {
-			System.out.println("¿µ¾î ÃµÀç");
+			System.out.println("ì˜ì–´ ì²œì¬");
 		}else if(result <= 4) {
-			System.out.println("Èì");
+			System.out.println("í ");
 		}else if(result <= 6) {
-			System.out.println("4µî±Ş");
+			System.out.println("4ë“±ê¸‰");
 		}else if(result == 7) {
-			System.out.println("³Ê°¡ Á×¿´¾î");
+			System.out.println("ë„ˆê°€ ì£½ì˜€ì–´");
 		}
 	}
 }
