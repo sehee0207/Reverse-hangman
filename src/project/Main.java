@@ -16,7 +16,7 @@ public class Main {
 			System.out.println("=========== Reverse Hangman Game ===========");
 			System.out.println();
 			System.out.println("	1 easy | 2 ordinary | 3 hard");
-			System.out.println("	4 rule | 5 exit | 6 etc");
+			System.out.println("	  4 rule | 5 exit | 6 etc");
 			System.out.print("입력 : ");
 			mode_num = input.nextLine();
 			result = 10;
